@@ -1,0 +1,74 @@
+{
+  "chains": {
+    "chainA": {
+      "balances": {
+        "alice": 50,
+        "bob": 50
+      },
+      "conserved_total": 100,
+      "locks": {
+        "a": {
+          "amount": 50,
+          "expiry": 100,
+          "hashlock": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
+          "preimage_hex": "736563726574",
+          "recipient": "bob",
+          "sender": "alice",
+          "status": "redeemed"
+        }
+      }
+    },
+    "chainB": {
+      "balances": {
+        "alice": 80,
+        "bob": 120
+      },
+      "conserved_total": 200,
+      "locks": {
+        "b": {
+          "amount": 80,
+          "expiry": 60,
+          "hashlock": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
+          "preimage_hex": "736563726574",
+          "recipient": "alice",
+          "sender": "bob",
+          "status": "redeemed"
+        }
+      }
+    }
+  },
+  "events": [
+    {
+      "chain": "chainA",
+      "id": "a",
+      "status": "locked",
+      "type": "lock"
+    },
+    {
+      "chain": "chainB",
+      "id": "b",
+      "status": "locked",
+      "type": "lock"
+    },
+    {
+      "chain": "chainB",
+      "id": "b",
+      "status": "redeemed",
+      "type": "redeem"
+    },
+    {
+      "chain": "chainA",
+      "id": "a",
+      "status": "redeemed",
+      "type": "redeem"
+    }
+  ],
+  "swap_safety": [
+    {
+      "expiry_gap": 40,
+      "hashes_match": true,
+      "id": "swap1",
+      "safe_configuration": true
+    }
+  ]
+}

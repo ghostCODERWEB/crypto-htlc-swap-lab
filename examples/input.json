@@ -1,0 +1,60 @@
+{
+  "chains": {
+    "chainA": {
+      "alice": 100
+    },
+    "chainB": {
+      "bob": 200
+    }
+  },
+  "refund_safety_margin": 10,
+  "events": [
+    {
+      "type": "lock",
+      "chain": "chainA",
+      "id": "a",
+      "sender": "alice",
+      "recipient": "bob",
+      "amount": 50,
+      "expiry": 100,
+      "hashlock": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
+      "timestamp": 1
+    },
+    {
+      "type": "lock",
+      "chain": "chainB",
+      "id": "b",
+      "sender": "bob",
+      "recipient": "alice",
+      "amount": 80,
+      "expiry": 60,
+      "hashlock": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
+      "timestamp": 2
+    },
+    {
+      "type": "redeem",
+      "chain": "chainB",
+      "id": "b",
+      "actor": "alice",
+      "preimage_hex": "736563726574",
+      "timestamp": 3
+    },
+    {
+      "type": "redeem",
+      "chain": "chainA",
+      "id": "a",
+      "actor": "bob",
+      "preimage_hex": "736563726574",
+      "timestamp": 4
+    }
+  ],
+  "swaps": [
+    {
+      "id": "swap1",
+      "long_chain": "chainA",
+      "long_lock": "a",
+      "short_chain": "chainB",
+      "short_lock": "b"
+    }
+  ]
+}
